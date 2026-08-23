@@ -10,6 +10,6 @@ public class BookSpecs {
     }
 
     public static Specification<Book> isAvailable(boolean available) {
-        return (root, query, cb) -> cb.equal(root.get("isAvailable"), available);
+        return (root, query, cb) -> cb.equal(root.get("available"), available);
     }
 }

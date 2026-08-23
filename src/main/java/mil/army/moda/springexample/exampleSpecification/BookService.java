@@ -19,10 +19,15 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-
-    public List<Book> getAllBooksWihTitleOf(String title) {
+    public List<Book> getAllBooksHavingTitleOf(String title) {
         Specification<Book> spec = Specification.where(BookSpecs.isAvailable(true))
             .and(BookSpecs.title(title));
+
+        return bookRepository.findAll(spec);
+    }
+
+    public List<Book> getAllAvailableBooks() {
+        Specification<Book> spec = Specification.where(BookSpecs.isAvailable(true));
 
         return bookRepository.findAll(spec);
     }

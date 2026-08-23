@@ -26,6 +26,17 @@ public class Book {
     @Nonnull
     private Boolean available;
 
+    public Book() {
+    }
+
+    public Book(@Nonnull String title, @Nonnull String description, @Nonnull Double price, @Nonnull String isbn, @Nonnull Boolean available) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.isbn = isbn;
+        this.available = available;
+    }
+
     public Long getId() {
         return id;
     }
