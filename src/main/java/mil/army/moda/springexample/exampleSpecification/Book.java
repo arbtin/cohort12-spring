@@ -1,10 +1,12 @@
 package mil.army.moda.springexample.exampleSpecification;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Book {
 
     @Id
@@ -27,6 +29,11 @@ public class Book {
     private Boolean available;
 
     public Book() {
+        title = "";
+        description = "";
+        price = 0.0;
+        isbn = "";
+        available = null;
     }
 
     public Book(@Nonnull String title, @Nonnull String description, @Nonnull Double price, @Nonnull String isbn, @Nonnull Boolean available) {

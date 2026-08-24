@@ -2,7 +2,7 @@ package mil.army.moda.springexample.exampleSpecification;
 
 import org.springframework.data.jpa.domain.Specification;
 
-public class BookSpecs {
+public class BookSpecification {
 
     public static Specification<Book> title(String title) {
         return (root, query, cb) ->

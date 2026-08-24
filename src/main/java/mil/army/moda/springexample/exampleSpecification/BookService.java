@@ -20,16 +20,14 @@ public class BookService {
     }
 
     public List<Book> getAllBooksHavingTitleOf(String title) {
-        Specification<Book> spec = Specification.where(BookSpecs.isAvailable(true))
-            .and(BookSpecs.title(title));
+        Specification<Book> spec = Specification.where(BookSpecification.isAvailable(true))
+            .and(BookSpecification.title(title));
 
         return bookRepository.findAll(spec);
     }
 
-    public List<Book> getAllAvailableBooks() {
-        Specification<Book> spec = Specification.where(BookSpecs.isAvailable(true));
-
-        return bookRepository.findAll(spec);
+    public List<Book> getAvailableBooks(boolean available) {
+        return bookRepository.findAll(BookSpecification.isAvailable((available)));
     }
 
     public Book getBookById(Long id) {

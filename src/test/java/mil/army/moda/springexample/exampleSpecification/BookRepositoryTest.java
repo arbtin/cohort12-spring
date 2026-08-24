@@ -18,28 +18,21 @@ class BookRepositoryTest {
     @Test
     void shouldFindOnlyAvailableBooks() {
         // Arrange
-        Book availableBook1 = new Book();
-        availableBook1.setAvailable(true);
+        Book availableBook = new Book();
+        availableBook.setAvailable(true);
 
-        Book availableBook2 = new Book();
-        availableBook2.setAvailable(true);
-
-        Book unavailableBook = new Book();
-        unavailableBook.setAvailable(false);
+        Book unAvailableBook = new Book();
+        unAvailableBook.setAvailable(false);
 
         bookRepository.saveAll(List.of(
-                availableBook1,
-                availableBook2,
-                unavailableBook
+                availableBook,
+                unAvailableBook
         ));
 
         // Act
-        Specification<Book> spec = BookSpecs.isAvailable(true);
-
-        List<Book> result = bookRepository.findAll(spec);
+        List<Book> result = bookRepository.findAll(BookSpecification.isAvailable(true));
 
         // Assert
-        assertThat(result).hasSize(2);
-        //assertThat(result).allMatch(Book::available);
+        assertThat(result).hasSize(1);
     }
 }
