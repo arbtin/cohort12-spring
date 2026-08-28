@@ -5,14 +5,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.AccessDeniedException;
-import java.util.List;
 
 @Service
 public class PersonService {
 
-    private final PersonRepositiory personRepository;
+    private final PersonRepository personRepository;
 
-    public PersonService(PersonRepositiory personRepository) {
+    public PersonService(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 

@@ -17,7 +17,7 @@ class PersonServiceTest {
     private PersonService personService;
 
     @MockitoBean
-    private PersonRepositiory personRepository;
+    private PersonRepository personRepository;
     @Test
     @WithMockPerson(role = "TEACHER", assignments = "FACULTY")
     void allowsTeacherWithAssignment() {

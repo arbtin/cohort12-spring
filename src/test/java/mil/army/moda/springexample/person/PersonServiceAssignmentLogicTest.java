@@ -9,7 +9,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
 
@@ -21,11 +20,11 @@ import static org.mockito.Mockito.when;
 class PersonServiceAssignmentLogicTest {
 
     private PersonService personService;
-    private PersonRepositiory personRepository;
+    private PersonRepository personRepository;
 
     @BeforeEach
     void setUp() {
-        personRepository = mock(PersonRepositiory.class);
+        personRepository = mock(PersonRepository.class);
         personService = new PersonService(personRepository);
     }
 
